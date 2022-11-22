@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Post;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
@@ -20,6 +21,12 @@ Route::get('/', function () {
     //return view('post');
     //return view('contact');
     //return view('about');
+    //return redirect(route('posts.index'));
+    $post = new Post();
+    $post -> title = 'test title';
+    $post->content = 'test';
+    $post->save();
+    return 'Saved, OK!';
 });
 
 Route::get('posts',[PostController::class,'index'])->name('posts.index');
