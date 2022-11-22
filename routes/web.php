@@ -43,9 +43,16 @@ Route::get('/', function () {
     dd($post);
     return 'Saved, OK!';*/
 
-    $posts = Post::where('id', '<', 10)->orderBy('id', 'DESC')->get();
+    /*$posts = Post::where('id', '<', 10)->orderBy('id', 'DESC')->get();
     dd($posts);
-    return 'Saved, OK!';
+    return 'Saved, OK!';*/
+
+    $post = Post::find(1);
+    $post->update([
+        'title' => 'updated title',
+        'content' => 'updated content',
+    ]);
+    return 'Saved, OK! (update)';
 });
 
 Route::get('posts',[PostController::class,'index'])->name('posts.index');
