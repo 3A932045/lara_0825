@@ -22,10 +22,17 @@ Route::get('/', function () {
     //return view('contact');
     //return view('about');
     //return redirect(route('posts.index'));
-    $post = new Post();
-    $post -> title = 'test title';
-    $post->content = 'test';
-    $post->save();
+
+    //$post = new Post();
+    //$post -> title = 'test title';
+    //$post->content = 'test';
+    //$post->save();
+    //return 'Saved, OK!';
+
+    Post::create([
+        'title' => 'created title',
+        'content' => 'created content',
+    ]);
     return 'Saved, OK!';
 });
 
