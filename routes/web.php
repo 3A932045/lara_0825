@@ -54,11 +54,21 @@ Route::get('/', function () {
     ]);
     return 'Saved, OK! (update)';*/
 
-    $post = Post::find(1);
+    /*$post = Post::find(1);    save方法更新資料
     $post -> title = 'saved title';
     $post->content = 'saved content';
     $post->save();
-    return 'Saved, OK! update';
+    return 'Saved, OK! update';*/
+
+    /*$post = Post::find(1);    刪除
+    $post->delete();
+    return 'Deleted';*/
+
+    /*Post::destroy(2);     使用destroy方法刪除
+    return 'Deleted, destroy!';*/
+
+    Post::destroy(3, 5, 7); //刪除特定資料
+    return 'Deleted 3 5 7';
 });
 
 Route::get('posts',[PostController::class,'index'])->name('posts.index');
