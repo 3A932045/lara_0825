@@ -67,8 +67,20 @@ Route::get('/', function () {
     /*Post::destroy(2);     使用destroy方法刪除
     return 'Deleted, destroy!';*/
 
-    Post::destroy(3, 5, 7); //刪除特定資料
-    return 'Deleted 3 5 7';
+    /*Post::destroy(3, 5, 7); 刪除特定資料
+    return 'Deleted 3 5 7';*/
+
+    /*$allPosts = Post::all();
+    dd($allPosts);*/
+
+    /*$featuredPosts = Post::where('is_feature', 1)->get();
+    dd($featuredPosts);*/
+
+    /*$fourthPost = Post::find(4);
+    dd($fourthPost);*/
+
+    $lastPost = Post::orderBy('id', 'DESC')->first();
+    dd($lastPost);
 });
 
 Route::get('posts',[PostController::class,'index'])->name('posts.index');
