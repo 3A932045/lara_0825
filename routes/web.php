@@ -23,16 +23,28 @@ Route::get('/', function () {
     //return view('about');
     //return redirect(route('posts.index'));
 
-    //$post = new Post();
+    //$post = new Post();   使用save方法新增資料
     //$post -> title = 'test title';
     //$post->content = 'test';
     //$post->save();
     //return 'Saved, OK!';
 
-    Post::create([
-        'title' => 'created title',
-        'content' => 'created content',
-    ]);
+    //Post::create([    使用create()方法新增資料
+    //    'title' => 'created title',
+    //    'content' => 'created content',
+    //]);
+    //return 'Saved, OK!';
+
+    /*$posts = Post::all(); 倒出所有資料
+        dd($posts);
+        return 'Saved, OK!';*/
+
+    /*$post = Post::find(1);    利用id查詢資料
+    dd($post);
+    return 'Saved, OK!';*/
+
+    $posts = Post::where('id', '<', 10)->orderBy('id', 'DESC')->get();
+    dd($posts);
     return 'Saved, OK!';
 });
 
